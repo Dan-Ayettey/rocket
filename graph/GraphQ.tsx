@@ -1,7 +1,5 @@
 import gql from "graphql-tag";
 import React from "react";
-import { View, Text, Dimensions } from "react-native";
-
 export const FETCH_COIN_LIST = gql`
     query FetchCoinsList {
         coinsList

@@ -18,7 +18,8 @@ export default {
           },
         },
       },
-      NotFound: '*',
+
+      Welcome: '*',
     },
   },
 };

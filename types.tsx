@@ -1,21 +1,23 @@
+
+//router types
 export type RootStackParamList = {
   Root: undefined;
-  NotFound: undefined;
+  Welcome: undefined;
+  CoinsList:undefined
+
 };
 
 export type BottomTabParamList = {
-  BTC: undefined;
-  ETH: undefined;
-  CoinList:undefined
+  Welcome: undefined;
+  CoinsList:undefined
+  CoinDetails:undefined
 };
 
-export type BTCParamList = {
-  BTC: undefined;
-};
+
 export type CoinParamList = {
- CoinList: undefined;
+  Welcome: undefined;
+ CoinsList: undefined;
 };
 
-export type ETHParamList = {
-  ETH: undefined;
-};
+
+
