@@ -14,7 +14,7 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 const restLink = new RestLink({
     uri: 'https://min-api.cryptocompare.com',
     headers: {
-        Authorization:process.env.API_KEY+''
+        Authorization:''
     }
 })
 // Appollo client  option
