@@ -35,10 +35,6 @@
  **Target: The objective is to create a "cryptocurrency market"-app. With the historical data provided by the API the
   goal is to present it in meaningful way for the user.
  **Return output**
- Within the movie resource, the IMDb information can be found at the following path:
- _embedded[“viaplay:blocks”][0]._embedded[“viaplay:product”].content.imdb
- Using the get rquest of the provided link doesn't return  with a movie resource!
- The output of the GET request of  https://content.viaplay.se/pc-se/film/arrival-2016
  ```json
  { "CoinInfo": [{
                       "Id": 0,
