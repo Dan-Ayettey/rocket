@@ -31,7 +31,7 @@
  
  
  ### Development
- Platform: I decided to work with Nodejs, since I have a lot of React and react native.
+ Platform: I decided to work with Nodejs, since I have a lot of experience with React and react native.
  **Target: The objective is to create a "cryptocurrency market"-app. With the historical data provided by the API the
   goal is to present it in meaningful way for the user.
  **Return output**
