@@ -1,50 +1,43 @@
 import * as React from 'react';
-import {ScrollView,TextInput, TouchableOpacity } from 'react-native';
+import { Image, Keyboard, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import { Text, View } from '../components/Themed';
-import Colors from "../constants/Colors";
-import { TabBarIcon } from "../icons/Icons";
 import { styles } from "../styles/styles";
-import Page from "../chart/chartKit";
-import { useEffect, useRef, useState } from "react";
+import {Page} from "../chart/chartKit";
+import { NotFound } from "./NotFound";
 
+//Show coin details
 export  function CoinDetails(props: any) {
-    const [scrollToView,setScrollToView]=useState('')
-    const [text,setText]=useState('')
-    let ref=useRef<any>()
-    useEffect(()=>{
-        setScrollToView(scrollToView)
-    },[])
-    const {route,navigation} = props
-    const {params} = route
-    if(params) {
 
-        // flat the objects
+
+    const {navigation} = props
+    const {state}=navigation
+    const {params} = state
+
+    if(params) {
+        // flatting  objects
         const {coinDetails} = params
         const {CoinInfo, DISPLAY} = coinDetails
         const {FullName} = CoinInfo
         const {USD} = DISPLAY
         const {PRICE, OPENDAY, HIGHDAY, LOWDAY, OPEN24HOUR} = USD
+
+       // render component
         return (
+            <View style={styles.container}>
+                <View style={styles.topBarContainer}>
+                    <Text style={{fontSize:20,margin:10}}>  Rocket|Coin Miner</Text>
+                </View>
+
             <ScrollView>
-                <View style={styles.container}>
+                <View >
 
-                    <View style={styles.searchContainer}>
-                        <TextInput style={styles.searchInput} ref={ref} value={text} onChangeText={(text => setText(text))}/>
-
-                        <Text  onPress={press=>{
-                         navigation.replace('CoinsList',{coinName:text,isClickedCoinDetails:true})
-                         navigation.goBack('CoinsList')
-                         setScrollToView(text)
-                        }}><TabBarIcon name="search" color={Colors.light.tint} /></Text>
-                    </View>
                     <View>
                         <Text style={[styles.text, styles.title]}>{FullName}</Text>
                     </View>
 
                     <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)">
                     </View>
-                    <Page display={DISPLAY.USD} bottom={24} category={DISPLAY.USD} fontSize={8} isLine={true}
-                          isTick={true} left={38} value={DISPLAY.USD} height={320}/>
+                    <Page display={DISPLAY.USD} height={320}/>
                     <View style={styles.column}>
                         <View style={styles.row}>
                             <Text style={[styles.text, styles.fontSize]} numberOfLines={1}>
@@ -102,15 +95,10 @@ export  function CoinDetails(props: any) {
 
                 </View>
             </ScrollView>
+            </View>
 
         );
-    }else {
-        return  (
-            <View style={styles.notFoundContainer}>
-                <Text style={styles.notFoundTitle}>This coin doesn't exist.</Text>
-                <TouchableOpacity onPress={() => navigation.goBack('CoinsList')} style={styles.link}>
-                    <Text style={styles.linkText}>Go to home and view a coin!</Text>
-                </TouchableOpacity>
-            </View>)
-    }
+    }else {   return  (< NotFound navigation={navigation} />) }
+
+
 }

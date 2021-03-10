@@ -5,52 +5,55 @@
  
  This is a simple React native project created as  test project for Rocket.
  To run this project you need to set up environment. 
- ### Installation
+ ### 
+   - Installing dependencies into an Expo managed project 
    - Running Nodejs environment, preferably version 6.13.4 (use Any IDE of your choice)
    - Valid cryptocompare.com API Key: [cryptocompare]
  
  ```sh
   git clone https://github.com/Dan-Ayettey/rocket.git
   cd rocket
-  npm i 
+  npm i or yarn add
   make sure you have expo install on your phone
-  expo start or expo start --android or expo start --ios or expo start --web. Depending on your platform,
+  in your project directory, run:
+  expo start --android or expo start --ios or yarn start. Depending on your platform,
  ```
- if everything run successfully you should receive a message saying that the project is running on the port 3000 by defaut;
+ if everything run successfully you should see the app on your phone or emulator;
  
  ```sh
- Nodejs development server started: <http://127.0.0.1:3000>
+  expo development server started: <http://127.0.0.1:3000>
  ```
  ### Requests
- This project one sample request which is a **GET** request to the following Route: **Base_url +"/api/v1/trailers?"url=_{movie_resource_url_from_viaplay}_**
+ This project one sample request which is a **GET** request to the following Route: **Base_url +https://min-api.cryptocompare.com}_**
  
  ##### Request URL 
-   http://localhost:3000/api/v1/trailers?url=http://content.viaplay.se/pc-se/film
- | http://localhost:3000/api/v1/trailers?url=https://content.viaplay.se/pc-se/film/troja-2004
- ##### Some Youtube URL 
-  
-  https://www.youtube.com/watch?v=qsOwj0PR5Sk|https://www.youtube.com/watch?v=OiTiKOy59o4
- | https://www.youtube.com/watch?v=WcXt9aUMbBk|https://www.youtube.com/watch?v=btI7yHxn1NU
- | https://www.youtube.com/watch?v=a6O30nJ02PU|https://www.youtube.com/watch?v=akwGjUeU6YA
- | https://www.youtube.com/watch?v=YG_a8lw512A|https://www.youtube.com/watch?v=aNGhnNMSopI
- | https://www.youtube.com/watch?v=dSBsNeYqh-k|https://www.youtube.com/watch?v=bYEoQetO56E|
- | https://www.youtube.com/watch?v=EtpBbRsNr-M|https://www.youtube.com/watch?v=4w8lohkQtbY
- |  
+   https://min-api.cryptocompare.com/data/top/totalvolfull?tsym=USD
+ 
  
  ### Development
- Platform: I decided to work with Nodejs, since I have a lot of experience with Express and Auth  protocols
- **Target: create REST API for providing client with Trailer URLs**
- Movie Resource Link as Input: https://content.viaplay.se/pc-se/film/arrival-2016 
- **Return Trailer as output**
+ Platform: I decided to work with Nodejs, since I have a lot of React and react native.
+ **Target: The objective is to create a "cryptocurrency market"-app. With the historical data provided by the API the
+  goal is to present it in meaningful way for the user.
+ **Return output**
  Within the movie resource, the IMDb information can be found at the following path:
  _embedded[“viaplay:blocks”][0]._embedded[“viaplay:product”].content.imdb
  Using the get rquest of the provided link doesn't return  with a movie resource!
  The output of the GET request of  https://content.viaplay.se/pc-se/film/arrival-2016
  ```json
- {
-     "code": 5100,
-     "redirectPath": "/pc-se/film",
-     "url": "/pc-se/film/arrival-2016"
+ { "CoinInfo": [{
+                      "Id": 0,
+                      "Name": "",
+                      "FullName": "",
+                  
+                  "DISPLAY":{
+                      "USD":{
+                          "PRICE": 0,
+                          "OPENDAY": 0,
+                          "HIGHDAY": 0,
+                          "LOWDAY":0,
+                          "OPEN24HOUR": 0
+                      }
+                  }]
  }
  ```
  - I decided to use **"http://content.viaplay.se/pc-se/film" and https://content.viaplay.se/pc-se/film/troja-2004** to get movie resource instead.
@@ -68,18 +71,3 @@
   
   ####### Links to modules and middle-wares
  
- 
- 
-    [download-express]: <https://www.npmjs.com/package/express>
-     [download-express]: <https://www.npmjs.com/package/http>
-      [download-express]: <https://www.npmjs.com/package/morgan>
-       [download-express]: <https://www.npmjs.com/package/express-cache-middleware'>
-       [download-express]: <https://www.npmjs.com/package/body-parser'>
-       [download-express]: <https://www.npmjs.com/package/bunyan'>
-    [download]:<https://www.npmjs.com/package/redis>
-    
-    #### third party links
-    [moviedb-api]: <https://www.themoviedb.org/documentation/api>
-    [download-here]: <https://getcomposer.org/download/>
- 
-

@@ -14,10 +14,4 @@ export type BottomTabParamList = {
 };
 
 
-export type CoinParamList = {
-  Welcome: undefined;
- CoinsList: undefined;
-};
-
-
 

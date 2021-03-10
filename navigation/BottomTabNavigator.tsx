@@ -1,71 +1,32 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 //import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
-
-import Colors from '../constants/Colors';
-import useColorScheme from '../hooks/useColorScheme';
-import CoinsScreen from '../screens/CoinsScreen';
-
-import { createStackNavigator } from '@react-navigation/stack'
-import { TabBarFontIcon, TabBarMaterialCommunityIcons } from "../icons/Icons";
 import { CoinDetails } from "../screens/CoinDetails";
-import { CoinParamList } from "../types";
-const BottomTab = createBottomTabNavigator();
-const Stack = createStackNavigator<CoinParamList>();
-
-// You can explore the built-in icon families and icons on the web at:
-
-
-export default function BottomTabNavigator() {
-  const colorScheme = useColorScheme();
-
-  return (
-
-    <BottomTab.Navigator
-      initialRouteName="WelcomeScreen"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
-
-        <BottomTab.Screen
-            name="CoinsList"
-            component={CoinListNavigator}
-            options={{
-                tabBarIcon: ({ color }) => <TabBarFontIcon name="coins" color={color} />,
-            }}
-        />
-        <BottomTab.Screen
-            name="CoinDetails"
-            options={{
-                tabBarIcon: ({ color }) => <TabBarMaterialCommunityIcons name="transit-detour" color={color} />,
-            }}
-            component={CoinDetails}
-        />
-
-    </BottomTab.Navigator>
-
-  );
-}
+import { createAppContainer } from "react-navigation";
+import {createBottomTabNavigator} from "react-navigation-tabs";
+import { Image } from "react-native";
+import { styles } from "../styles/styles";
+import { CoinsList } from "../screens/CoinsList";
 
 
-// Each tab has its own navigation stack, you can read more about this pattern here:
+const BottomTab = createBottomTabNavigator({
+    CoinsScreen: {
+        screen:  CoinsList,
+        navigationOptions: {
+            tabBarLabel:"Coins",
+            tabBarIcon:({ tintColor }) => <Image style={styles.tabIcon} source={require('../assets/coins-of-dollars-stack_icon-icons.com_56192.png')}/>
+        }
+    },
+    CoinDetails: {
+        screen: CoinDetails,
+        navigationOptions: {
+            tabBarLabel:"CoinDetails",
+            tabBarIcon:({ tintColor }) => <Image style={styles.tabIcon} source={require('../assets/transit_detour_icon_137078.png')}/>
+        }
 
+    }
+});
 
-function CoinListNavigator() {
-    return (
-
-        <Stack.Navigator>
-            <Stack.Screen
-                name="CoinsList"
-                component={CoinsScreen}
-                options={{ headerTitle: 'Rocket|Coin miner' }}
-
-            />
-        </Stack.Navigator>
-
-
-
-    );
-}
-
-
+export  const BottomTabNavigator = createAppContainer(BottomTab);
 
 

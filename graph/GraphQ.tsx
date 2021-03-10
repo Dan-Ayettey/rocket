@@ -1,5 +1,27 @@
 import gql from "graphql-tag";
 import React from "react";
+import { RestLink } from "apollo-link-rest";
+import { ApolloClient } from "apollo-client";
+import { InMemoryCache } from "apollo-cache-inmemory";
+
+//Environment key
+
+
+/*
+ Rest link config for GraphQ
+ Need API key
+ */
+const restLink = new RestLink({
+    uri: 'https://min-api.cryptocompare.com',
+    headers: {
+        Authorization:process.env.API_KEY+''
+    }
+})
+// Appollo client  option
+export const client = new ApolloClient({
+    link:restLink,
+    cache: new InMemoryCache(),
+});
 export const FETCH_COIN_LIST = gql`
     query FetchCoinsList {
         coinsList

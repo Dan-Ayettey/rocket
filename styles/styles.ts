@@ -107,7 +107,7 @@ export const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        justifyContent:'space-evenly',
+        justifyContent:'space-between',
         width:Dimensions.get('window').width,
         backgroundColor: '#fff',
         borderBottomWidth:1,
@@ -215,13 +215,35 @@ export const styles = StyleSheet.create({
      width:300,height:30,padding:4
     },
     WelcomeScreenContainer: {
-
                 flex: 1,
                 backgroundColor: '#fff',
                 alignItems: 'center',
                 justifyContent: 'center',
                 padding: 20,
 
+    },
+    topBarContainer: {
+        paddingTop:30,
+        paddingBottom:20,
+        backgroundColor: '#fff',
+        borderBottomWidth:1,
+
+        borderBottomColor:'lightgray',
+        alignItems: 'flex-start',
+        justifyContent: 'space-evenly',
+        padding: 2,
+    },
+    tabIcon: {
+        width:22,
+        height:22
+    },
+    searchIcon: {
+     width:26,
+     height:26
+    },
+    searchIconContainer: {
+        width:40,
+        height:40
     }
 
 
