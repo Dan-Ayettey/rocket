@@ -53,21 +53,11 @@
                           "LOWDAY":0,
                           "OPEN24HOUR": 0
                       }
-                  }]
+                  }
+}
+]
  }
- ```
- - I decided to use **"http://content.viaplay.se/pc-se/film" and https://content.viaplay.se/pc-se/film/troja-2004** to get movie resource instead.
- After getting the movie resource I extracted the IMDB id;
- - I called THE MOVIE DB API to get the movie id from IMDB id:
- https://api.themoviedb.org/3/find/{external_id}?api_key=<<api_key>>&language=en-US&external_source=imdb_id
- - I called the Movie DB API to get the trailler using themoviedb id:
- https://api.themoviedb.org/3/movie/603/videos?api_key=cf59e3834d8b8ef500ff73aa09dec848&language=en-US
- - After getting Youtube key, I store the viaplay movie resource url with youtube url in Redis, simple-cache, express compression modules
-  for faster retrieval for the next call, for performance reasons using compressor and bunyan for debugging .
- 
- ### Todos
-  - little more test needed
-  - shorten the response for the first time api call
-  
+ ```  
   ####### Links to modules and middle-wares
  
+https://reactnative.dev/
